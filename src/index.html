@@ -1,14 +1,70 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Page title</title>
-    <link rel="stylesheet" href="./sass/index.scss" />
-    <script type="module" src="./index.js"></script>
+    <title>Homework 10</title>
+    <link href="https://unpkg.com/slim-select@latest/dist/slimselect.css" rel="stylesheet"></link>
+    <style>
+      .hide {
+        display: none !important;
+      }
+      .breed-select {
+        margin-bottom: 10px;
+        max-width: 300px;
+      }
+      .cat-info {
+        display: flex;
+        gap: 20px;
+      }
+      .cat-info__wrap {
+        display: flex;
+        flex-direction: column;
+        max-width: 600px;
+      }
+      .imgCat {
+        max-width: 500px;
+        max-height: 300px;
+      }
+      .loader {
+  display: inline-block;
+  font-size: 48px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  color: #000;
+  position: relative;
+}
+.loader::before {
+  content: '';  
+  position: absolute;
+  left: 34px;
+  bottom: 8px;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 5px solid #000;
+  border-bottom-color: #FF3D00;
+  box-sizing: border-box;
+  animation: rotation 0.6s linear infinite;
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+} 
+    </style>
   </head>
   <body>
-    <!-- ❗️❗️❗️ Add partials like so for every page -->
-    <include src="./partials/example.html"></include>
+    <select class="breed-select" id="selectElement">
+      <option data-placeholder="true"></option>
+    </select>
+    <span class="loader">L &nbsp; ading</span>
+    <p class="error">Oops! Something went wrong! Try reloading the page!</p>
+    <div class="cat-info"></div>
+    <script src="index.js" type="module"></script>
   </body>
 </html>
